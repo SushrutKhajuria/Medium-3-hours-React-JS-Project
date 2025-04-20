@@ -15,11 +15,13 @@ const BlogModal = () => {
   if (!isModalOpen) return null;
 
   return ReactDOM.createPortal(
-    <div>
-      <div>
-        <h2>{currentBlog ? 'Edit Blog' : 'New Blog'}</h2>
+    <div className="modal-backdrop">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h2>{currentBlog ? 'Edit Blog' : 'New Blog'}</h2>
+        </div>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="form-group">
             <label>Title:</label>
             <input
               type="text"
@@ -28,7 +30,7 @@ const BlogModal = () => {
               required
             />
           </div>
-          <div>
+          <div className="form-group">
             <label>Image URL:</label>
             <input
               type="url"
@@ -37,10 +39,21 @@ const BlogModal = () => {
               required
             />
           </div>
-          <button type="submit">{currentBlog ? 'Update' : 'Post'}</button>
-          <button type="button" onClick={() => setIsModalOpen(false)}>
-            Cancel
-          </button>
+          <div className="modal-actions">
+            <button 
+              type="button" 
+              className="btn btn-danger"
+              onClick={() => setIsModalOpen(false)}
+            >
+              Cancel
+            </button>
+            <button 
+              type="submit" 
+              className="btn btn-success"
+            >
+              {currentBlog ? 'Update' : 'Post'}
+            </button>
+          </div>
         </form>
       </div>
     </div>,

@@ -11,7 +11,7 @@ export const BlogProvider = ({ children }) => {
     if (currentBlog) {
       setBlogs(blogs.map(b => b.id === currentBlog.id ? blog : b));
     } else {
-      setBlogs([...blogs, { ...blog, id: Date.now() }]);
+      setBlogs([...blogs, { ...blog, id: Date.now()+ Math.random().toString(36).slice(2) }]);
     }
     setIsModalOpen(false);
     setCurrentBlog(null);

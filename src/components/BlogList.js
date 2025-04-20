@@ -11,11 +11,11 @@ const BlogList = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleAddBlog}>Add New Blog</button>
-      
-     
-      <div>
+    <div className="blog-list-container">
+      <button className="btn btn-primary" onClick={handleAddBlog}>
+        Add New Blog
+      </button>
+      <div className="blog-list">
         {blogs.map((blog) => (
           <BlogItem key={blog.id} blog={blog} />
         ))}
